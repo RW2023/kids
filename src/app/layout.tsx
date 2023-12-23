@@ -1,16 +1,20 @@
-import type { Metadata } from 'next'
+'use client';
+import React from 'react';
+import './globals.css';
+import Navbar from '@/components/ui/Navbar';
+import Footer from '@/components/ui/Footer';
+import { usePathname } from 'next/navigation'; // Import only usePathname
 
-import './globals.css'
-import Navbar from '@/components/ui/Navbar'
-import Footer from '@/components/ui/Footer'
+// Define a type for the component's props
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
 
+export default function RootLayout({ children }: RootLayoutProps) {
+  const pathname = usePathname(); // Use usePathname hook
 
+  const isHomepage = pathname === '/';
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
   return (
     <html lang="en" data-theme="dark">
       <head>
@@ -22,7 +26,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body>
-        <Navbar />
+        {!isHomepage && <Navbar />}
         {children}
       </body>
       <Footer />
