@@ -2,6 +2,7 @@ import React from 'react';
 import SubHeading from '@/components/ui/SubHeading'; 
 import Link from 'next/link';
 
+
 const HomePage = () => {
   return (
     <>
@@ -70,7 +71,10 @@ const HomePage = () => {
 
       <div className="py-12 bg-base-100">
         <div className="container mx-auto text-center">
-          <button className="btn btn-secondary">Learn More</button>
+          <Link
+          href={'/about'}>
+          <button type='button' className="btn btn-secondary">Learn More</button>
+          </Link>
         </div>
       </div>
     </>
