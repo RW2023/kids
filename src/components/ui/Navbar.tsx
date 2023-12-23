@@ -1,27 +1,58 @@
-/* eslint-disable @next/next/no-img-element */
 'use client';
-
 import { useState } from 'react';
 import Link from 'next/link';
 import SubHeading from './SubHeading';
 import DarkModeToggle from './DarkModeToggle';
+import { motion, useAnimation } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Function to close the navbar
   const closeNavbar = () => {
     setIsOpen(false);
   };
 
-  // Construct Cloudinary URL for your image with transformations
-  const imageUrl = `https://res.cloudinary.com/wildev/image/upload/w_60,h_60,c_fill,g_face,r_max/sites/RW%20Images/me_yzjh2n.jpg`;
+  const variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
+const buttonVariants = {
+  open: {
+  rotate: 180,
+    scale: 1.2,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  closed: {
+rotate: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+  const buttonControls = useAnimation();
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+    buttonControls.start(isOpen ? 'closed' : 'open');
+  };
 
   return (
-    <nav
+    <motion.nav
       className="flex items-center justify-between flex-wrap p-3 navbar mt-0 sticky top-0 z-20 bg-base-200 shadow-2xl bg-opacity-90"
       style={{ fontFamily: "'Poppins', sans-serif" }}
-      // data-theme="black"
+      initial="hidden"
+      animate="show"
+      variants={variants}
     >
       <div className="flex items-center flex-shrink-0 text-2xl mr-6">
         <Link href="/">
@@ -30,27 +61,20 @@ const Navbar = () => {
             className="font-semibold text-xl tracking-tight cursor-pointer"
           >
             <div className="flex items-center">
-              {' '}
-              {/* Flexbox container */}
-              {/* Image */}
-              <img
-                src={imageUrl}
-                alt="Ryan Wilson"
-                width="60"
-                height="60"
-                className="rounded-full"
-              />
               {/* SubHeading */}
-              <SubHeading title="Ryan Wilson" iconClass="fas fa-person" />
+              <SubHeading title="Chore Tracker" iconClass="fas fa-tasks" />
             </div>
           </span>
         </Link>
       </div>
       <div className="block lg:hidden">
-        <button
+        <motion.button
           type="button"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={toggleNavbar}
           className="text-4xl inline-flex items-center justify-center p-2 rounded-md hover:bg-button hover:text-buttonText focus:outline-none focus:ring-2 focus:ring-inset focus:ring-buttonText text-base-content"
+          animate={buttonControls}
+          variants={buttonVariants}
+          initial="closed"
         >
           {isOpen ? (
             <svg
@@ -83,7 +107,7 @@ const Navbar = () => {
               />
             </svg>
           )}
-        </button>
+        </motion.button>
       </div>
       <div
         className={`${
@@ -126,7 +150,7 @@ const Navbar = () => {
           <DarkModeToggle />
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
