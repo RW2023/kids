@@ -30,8 +30,7 @@ export default function About() {
     },
   };
 
-  const imageUrl = `https://res.cloudinary.com/wildev/image/upload/w_120,h_120,c_fill,g_face,r_max/sites/RW%20Images/me_yzjh2n.jpg`;
-
+  
   return (
     <>
       <head>
@@ -64,7 +63,7 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 gap-3 md:grid-cols-1 lg:grid-cols-2">
-            <div className="card bg-base-300 shadow-xl mb-6 glass  mx-auto text-lg ">
+            <div className="card bg-base-300 shadow-xl mb-6 glass  mx-auto text-lg border">
               <div className="card-body text-xl">
                 <SubHeading
                   title="Track Chores and Tasks"
@@ -152,18 +151,18 @@ export default function About() {
                 />
                 <p>
                   Our chores app is designed to transform the way you manage
-                    household tasks. It&apos;s not just an application; it&apos;s a tool
-                  that brings efficiency and simplicity to your daily routine.
-                  Each feature in this app has been carefully crafted to make
-                  the often mundane and overlooked aspects of household
+                  household tasks. It&apos;s not just an application; it&apos;s
+                  a tool that brings efficiency and simplicity to your daily
+                  routine. Each feature in this app has been carefully crafted
+                  to make the often mundane and overlooked aspects of household
                   management enjoyable and intuitive. Our commitment to
                   improving your daily life is reflected in every part of the
                   app, from the interactive task lists to the personalized
                   reminders. As we continue to refine and enhance our app, we
                   remain dedicated to empowering users with a seamless
                   experience for managing their chores. This app is more than a
-                    utility; it&apos;s a dynamic platform evolving with your household
-                  needs.
+                  utility; it&apos;s a dynamic platform evolving with your
+                  household needs.
                 </p>
               </div>
             </div>
