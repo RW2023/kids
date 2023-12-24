@@ -24,7 +24,7 @@ const HomePage = () => {
               <button
                 type="button"
                 aria-label="get started button"
-                className="btn  bg-button text-buttonText border-stroke hover:text-button hover:bg-buttonText"
+                className="btn  bg-button text-buttonText border-stroke hover:text-button hover:bg-buttonText rounded-md"
               >
                 Login
               </button>
@@ -87,7 +87,7 @@ const HomePage = () => {
           <Link href={'/about'}>
             <button
               type="button"
-              className="btn  bg-button text-buttonText border-stroke hover:text-button hover:bg-buttonText"
+              className="btn  bg-button text-buttonText border-stroke hover:text-button hover:bg-buttonText rounded-md"
             >
               Learn More
             </button>
