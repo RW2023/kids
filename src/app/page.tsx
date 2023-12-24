@@ -37,7 +37,7 @@ const HomePage = () => {
         <div className="container mx-auto">
           <SubHeading title="Features" iconClass="fas fa-star" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 m-5">
             <div className="card bg-base-300 shadow-xl">
               <div className="card-body">
                 <h2 className="card-title">Organize Tasks</h2>
