@@ -22,22 +22,22 @@ const Navbar = () => {
     },
   };
 
-const buttonVariants = {
-  open: {
-  rotate: 180,
-    scale: 1.2,
-    transition: {
-      duration: 0.5,
+  const buttonVariants = {
+    open: {
+      rotate: 180,
+      scale: 1.2,
+      transition: {
+        duration: 0.5,
+      },
     },
-  },
-  closed: {
-rotate: 0,
-    scale: 1,
-    transition: {
-      duration: 0.5,
+    closed: {
+      rotate: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+      },
     },
-  },
-};
+  };
 
   const buttonControls = useAnimation();
 
@@ -115,12 +115,12 @@ rotate: 0,
         } w-full lg:flex lg:items-center lg:w-auto lg:justify-end`}
       >
         <div className="text-sm lg:flex-grow">
-          <Link href="/projects">
+          <Link href="/dashboard">
             <span
               onClick={closeNavbar}
               className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl  hover:underline mr-4 cursor-pointer"
             >
-              <i className="fas fa-cogs mr-2"></i>Projects{' '}
+              <i className="fas fa-tachometer-alt mr-2"></i>Dashboard{' '}
             </span>
           </Link>
           <Link href="/about">
@@ -128,7 +128,7 @@ rotate: 0,
               onClick={closeNavbar}
               className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl  hover:underline mr-4 cursor-pointer"
             >
-              <i className="fas fa-info mr-2"></i>About Me
+              <i className="fas fa-info mr-2"></i>About
             </span>
           </Link>
           <Link href="/feedback">
