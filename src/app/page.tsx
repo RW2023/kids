@@ -67,7 +67,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="bg-base-200 py-12">
+      <div className="bg-base-200 py-12 m-5">
         <div className="container mx-auto text-center">
           <SubHeading
             title="Why Choose ChoreMaster?"
