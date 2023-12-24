@@ -19,7 +19,7 @@ const DashboardPage: FC<Props> = (): JSX.Element => {
       animate="animate"
       exit="exit"
       variants={pageTransitionVariants}
-      className="container mx-auto p-6"
+      className="container mx-auto p-6 min-h-screen"
     >
       <SubHeading title="Dashboard" iconClass="fas fa-tachometer-alt" />
 
