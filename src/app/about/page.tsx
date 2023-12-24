@@ -4,6 +4,7 @@ import Heading from '@/components/ui/Heading';
 import SubHeading from '@/components/ui/SubHeading';
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
+import kidsImage from '../../../public/img/kids2.jpg';
 
 export default function About() {
   const controls = useAnimation();
@@ -37,7 +38,15 @@ export default function About() {
         <title>About | Chore Tracker</title>
         <meta name="description" content="Kids Chores App" />
       </head>
-      <div className="bg-base-200 min-h-screen">
+      <div
+        className="bg-base-200 min-h-screen"
+        style={{
+          backgroundImage: `url(${kidsImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {' '}
         <div className="container mx-auto p-6">
           <motion.div
             initial="hidden"
@@ -120,22 +129,31 @@ export default function About() {
                 </ul>
               </div>
             </div>
-            <div className="card bg-base-300 shadow-xl mb-6 glass mx-auto text-lg  w-auto">
+            <div className="card bg-base-300 shadow-xl mb-6 glass mx-auto text-lg w-auto">
               <div className="card-body">
                 <div className="card-title">
                   <SubHeading
-                    title="Track and display progress"
+                    title="Track and Display Progress"
                     iconClass="fas fa-chart-line"
-                  />{' '}
+                  />
                 </div>
                 <p>
-                  Display progress with visual ques adding to engagement and
-                  motivation.
+                  Our app introduces an interactive way to track chores and
+                  milestones, using engaging visual cues that add a layer of fun
+                  and motivation. By visualizing progress, users can easily see
+                  how close they are to completing their daily or weekly tasks,
+                  encouraging a sense of accomplishment and productivity.
                 </p>
                 <SubHeading
-                  title="Let them know they are almost there"
+                  title="Visualize Milestones"
                   iconClass="fas fa-flag-checkered"
-                />{' '}
+                />
+                <p>
+                  As users advance in completing tasks, our dynamic progress bar
+                  visually represents their journey towards their goals. This
+                  not only serves as a reminder of how much they have achieved
+                  but also motivates them to reach the finish line.
+                </p>
                 <progress
                   className="progress progress-success w-56"
                   value="70"
@@ -143,6 +161,7 @@ export default function About() {
                 ></progress>
               </div>
             </div>
+
             <div className="card bg-base-300 shadow-xl mb-6 glass  mx-auto text-lg w-auto">
               <div className="card-body">
                 <SubHeading
@@ -168,7 +187,7 @@ export default function About() {
             </div>
           </div>
 
-          <SubHeading title="Our Expertise" iconClass="fas fa-tools" />
+          <SubHeading title="technologies" iconClass="fas fa-tools" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 place-items-center">
             <div className="card bg-base-300 shadow-xl mb-6 glass text-lg place-items-center w-full mx-auto">
               <div className="card-body">
