@@ -16,7 +16,7 @@ const SubHeading: FC<Props> = ({ title, iconClass }): JSX.Element => {
 
   return (
     <h2
-      className="text-xl font-semibold font-poppins text-center mb-6 mt-6"
+      className="text-2xl font-semibold font-poppins text-center mb-6 mt-6"
       style={{
         textShadow:
           '2px 2px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000',

@@ -1,7 +1,8 @@
 import React from 'react';
 import SubHeading from '@/components/ui/SubHeading';
 import Link from 'next/link';
-import Heading from '@/components/ui/Heading';
+import HomeHeading from '@/components/ui/HomeHeading';
+import HomeSubHeading from '@/components/ui/HomeSubHeading';
 
 const HomePage = () => {
   return (
@@ -15,8 +16,8 @@ const HomePage = () => {
         <div className="hero-overlay bg-opacity-70"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
-            <Heading title="Chore Master" iconClass="fas fa-home" />
-            <SubHeading
+            <HomeHeading title="Chore Master" iconClass="fas fa-home" />
+            <HomeSubHeading
               title="  household management app"
             />
             <Link href={'/login'}>
