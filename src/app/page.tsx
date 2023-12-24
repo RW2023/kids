@@ -18,13 +18,12 @@ const HomePage = () => {
             <Heading title="Chore Master" iconClass="fas fa-home" />
             <SubHeading
               title="  household management app"
-              iconClass="fas fa-rocket"
             />
             <Link href={'/login'}>
               <button
                 type="button"
                 aria-label="get started button"
-                className="btn  bg-button text-buttonText border-stroke hover:text-button hover:bg-buttonText rounded-md"
+                className="btn  bg-button text-buttonText border-black hover:text-button hover:bg-buttonText rounded-md"
               >
                 Login
               </button>
@@ -87,7 +86,7 @@ const HomePage = () => {
           <Link href={'/about'}>
             <button
               type="button"
-              className="btn  bg-button text-buttonText border-stroke hover:text-button hover:bg-buttonText rounded-md"
+              className="btn  bg-button text-buttonText border-black hover:text-button hover:bg-buttonText rounded-md"
             >
               Learn More
             </button>
