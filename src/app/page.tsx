@@ -1,20 +1,33 @@
 import React from 'react';
-import SubHeading from '@/components/ui/SubHeading'; 
+import SubHeading from '@/components/ui/SubHeading';
 import Link from 'next/link';
-
+import Heading from '@/components/ui/Heading';
 
 const HomePage = () => {
   return (
     <>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content text-center">
+      <div
+        className="hero min-h-screen"
+        style={{
+          backgroundImage: 'url(/img/kids2.jpg)',
+        }}
+      >
+        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
-            <h1 className="text-5xl font-bold">Welcome to ChoreMaster!</h1>
-            <p className="py-6">
-              Making household management effortless and fun.
-            </p>
-            <Link href={"/login"}>
-            <button type='button' aria-label='Login' className="btn btn-primary">Login</button>
+            <Heading title="Chore Master" iconClass="fas fa-home" />
+            <SubHeading
+              title="  household management app"
+              iconClass="fas fa-rocket"
+            />
+            <Link href={'/login'}>
+              <button
+                type="button"
+                aria-label="get started button"
+                className="btn  bg-button text-buttonText border-stroke hover:text-button hover:bg-buttonText"
+              >
+                Login
+              </button>
             </Link>
           </div>
         </div>
@@ -71,9 +84,13 @@ const HomePage = () => {
 
       <div className="py-12 bg-base-100">
         <div className="container mx-auto text-center">
-          <Link
-          href={'/about'}>
-          <button type='button' className="btn btn-secondary">Learn More</button>
+          <Link href={'/about'}>
+            <button
+              type="button"
+              className="btn  bg-button text-buttonText border-stroke hover:text-button hover:bg-buttonText"
+            >
+              Learn More
+            </button>
           </Link>
         </div>
       </div>
