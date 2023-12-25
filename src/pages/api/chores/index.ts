@@ -1,7 +1,7 @@
 // pages/api/chores/index.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
 import dbConnect from '@/utils/mongodb'; 
-import Chore from '@/models/chores'; 
+import Chore from '@/models/chore'; 
 
 export default async function handler(
   req: NextApiRequest,
