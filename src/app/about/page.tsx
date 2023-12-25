@@ -169,19 +169,17 @@ export default function About() {
                   iconClass="fas fa-broom"
                 />
                 <p>
-                  Our chores app is designed to transform the way you manage
-                  household tasks. It&apos;s not just an application; it&apos;s
-                  a tool that brings efficiency and simplicity to your daily
-                  routine. Each feature in this app has been carefully crafted
-                  to make the often mundane and overlooked aspects of household
-                  management enjoyable and intuitive. Our commitment to
-                  improving your daily life is reflected in every part of the
-                  app, from the interactive task lists to the personalized
-                  reminders. As we continue to refine and enhance our app, we
-                  remain dedicated to empowering users with a seamless
-                  experience for managing their chores. This app is more than a
-                  utility; it&apos;s a dynamic platform evolving with your
-                  household needs.
+                    Our app is designed to simplify tracking chores for kids
+                    within a family. It&apos;s a practical tool that helps streamline
+                    household responsibilities. Every feature has been
+                    thoughtfully designed to make managing chores for kids easier
+                    and more enjoyable. We are dedicated to improving your
+                    family&apos;s daily life, evident in our interactive task lists and
+                    personalized reminders. As we continue to improve the app, we
+                    aim to provide you with a hassle-free way to manage your
+                    children&apos;s chores. This app adapts to your family&apos;s changing
+                    needs, making it more than just a utility – it&apos;s a flexible
+                    platform.
                 </p>
               </div>
             </div>
