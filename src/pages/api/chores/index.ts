@@ -1,7 +1,7 @@
 // pages/api/chores/index.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
-import dbConnect from '@/utils/mongodb'; 
-import Chore from '@/models/chore'; 
+import dbConnect from '@/utils/mongodb';
+import Chore from '@/models/chore';
 
 export default async function handler(
   req: NextApiRequest,
@@ -18,6 +18,18 @@ export default async function handler(
         res.status(500).json({ error: error.message });
       } else {
         res.status(500).json({ error: 'An unknown error occurred' });
+      }
+    }
+  } else if (req.method === 'POST') {
+    try {
+      const chore = new Chore(req.body);
+      await chore.save();
+      res.status(201).json(chore);
+    } catch (error) {
+      if (error instanceof Error) {
+        res.status(400).json({ error: error.message });
+      } else {
+        res.status(400).json({ error: 'Failed to create chore' });
       }
     }
   } else {
