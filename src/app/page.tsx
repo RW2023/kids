@@ -32,7 +32,7 @@ const HomePage = () => {
                 aria-label="get started button"
                 className="btn  bg-button text-buttonText border-black hover:text-button hover:bg-buttonText rounded-md"
               >
-                Login
+                Login to your personalized dashboard
               </button>
             </Link>
           </div>
@@ -108,13 +108,16 @@ const HomePage = () => {
 
       <div className="py-12 bg-base-100">
         <div className="container mx-auto text-center">
-          <Link href={'/about'}>
+          <Link 
+          href={'/about'}
+         aria-label='learn more about Chore Tracker'
+          >
             <button
               type="button"
-              aria-label="learn more button"
+              aria-label="learn more"
               className="btn  bg-button text-buttonText border-black hover:text-button hover:bg-buttonText rounded-md"
             >
-              Learn More
+              Learn More about Chore Tracker
             </button>
           </Link>
         </div>
