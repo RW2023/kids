@@ -9,7 +9,7 @@ const HomePage = () => {
     <>
     <head>
       <title>Chore Tracker</title>
-      <meta name="description" content="Chore Tracker" />
+      <meta name="description" content="Chore Management App" />
     </head>
       <div
         className="hero min-h-screen"
