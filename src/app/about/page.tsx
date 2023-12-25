@@ -80,7 +80,7 @@ export default function About() {
                     title="Track Chores and Tasks"
                     iconClass="fas fa-tasks"
                   />{' '}
-                  <p className="bg-base-200 rounded p-2 flex items-center text-left border">
+                  <p className="bg-base-200 rounded p-2  flex items-center text-left border">
                     {' '}
                     Track the chores and tasks your kids are doing. Reward them
                     with points and prizes.
@@ -162,8 +162,11 @@ export default function About() {
                     This not only serves as a reminder of how much they have
                     achieved but also motivates them to reach the finish line.
                   </p>
+                  <p className='test-center'>
+&quot;Almost There!&quot;
+                  </p>
                   <progress
-                    className="progress progress-success w-56"
+                    className="progress progress-success w-auto"
                     value="70"
                     max="100"
                   ></progress>
