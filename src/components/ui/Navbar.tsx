@@ -27,14 +27,14 @@ const Navbar = () => {
       rotate: 180,
       scale: 1.2,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
       },
     },
     closed: {
       rotate: 0,
       scale: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
       },
     },
   };
