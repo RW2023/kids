@@ -105,13 +105,15 @@ export default function About() {
             </div>
             <div className="card bg-base-300 shadow-xl mb-6 glass w-auto mx-auto text-lg ">
               <div className="card-body">
-                <SubHeading
-                  title="Gamify Chores"
-                  iconClass="fas fa-clipboard-list mr-2"
-                />
+                <div className="card-title">
+                  <SubHeading
+                    title="Gamify Chores"
+                    iconClass="fas fa-clipboard-list mr-2"
+                  />
+                </div>
                 <p>
                   Make chores and tasks exciting by gamifying them to engage
-                  your kids.
+                  your kids.. Reward them with points and prizes
                 </p>
                 <ul>
                   <li className="flex items-center">
@@ -169,17 +171,17 @@ export default function About() {
                   iconClass="fas fa-broom"
                 />
                 <p>
-                    Our app is designed to simplify tracking chores for kids
-                    within a family. It&apos;s a practical tool that helps streamline
-                    household responsibilities. Every feature has been
-                    thoughtfully designed to make managing chores for kids easier
-                    and more enjoyable. We are dedicated to improving your
-                    family&apos;s daily life, evident in our interactive task lists and
-                    personalized reminders. As we continue to improve the app, we
-                    aim to provide you with a hassle-free way to manage your
-                    children&apos;s chores. This app adapts to your family&apos;s changing
-                    needs, making it more than just a utility – it&apos;s a flexible
-                    platform.
+                  Our app is designed to simplify tracking chores for kids
+                  within a family. It&apos;s a practical tool that helps
+                  streamline household responsibilities. Every feature has been
+                  thoughtfully designed to make managing chores for kids easier
+                  and more enjoyable. We are dedicated to improving your
+                  family&apos;s daily life, evident in our interactive task
+                  lists and personalized reminders. As we continue to improve
+                  the app, we aim to provide you with a hassle-free way to
+                  manage your children&apos;s chores. This app adapts to your
+                  family&apos;s changing needs, making it more than just a
+                  utility – it&apos;s a flexible platform.
                 </p>
               </div>
             </div>
