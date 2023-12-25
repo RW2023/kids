@@ -16,7 +16,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   const isHomepage = pathname === '/';
 
   return (
-    <html lang="en" data-theme="black">
+    <html lang="en" data-theme="dim">
       <head>
         <link
           rel="stylesheet"
