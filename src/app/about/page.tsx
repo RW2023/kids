@@ -31,7 +31,6 @@ export default function About() {
     },
   };
 
-  
   return (
     <>
       <head>
@@ -72,169 +71,185 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 gap-3 md:grid-cols-1 lg:grid-cols-2">
-            <div className="card bg-base-300 shadow-xl mb-6 glass  mx-auto text-lg border">
-              <div className="card-body text-xl">
-                <SubHeading
-                  title="Track Chores and Tasks"
-                  iconClass="fas fa-tasks"
-                />{' '}
-                <p>
-                  Track the chores and tasks your kids are doing. Reward them
-                  with points and prizes.
-                </p>
-                <br />
-                <ul>
-                  <li className="flex items-center">
-                    <i className="fas fa-clipboard-list mr-2"></i>
-                    See who is actually doing what
-                  </li>
-                  <li className="flex items-center">
-                    <i className="fas fa-chart-bar mr-2"></i>
-                    Track progress
-                  </li>
-                  <li className="flex items-center">
-                    <i className="fas fa-bullseye mr-2"></i>
-                    Set goals
-                  </li>
-                  <li className="flex items-center">
-                    <i className="fas fa-gift mr-2"></i>
-                    Set rewards
-                  </li>
-                </ul>
+            <div className="bg-base-300 p-5 rounded-md drop-shadow-md border">
+              {' '}
+              <div className="card bg-base-300 shadow-xl mb-6 glass mx-auto text-lg ">
+                {' '}
+                <div className="card-body text-xl">
+                  <SubHeading
+                    title="Track Chores and Tasks"
+                    iconClass="fas fa-tasks"
+                  />{' '}
+                  <p>
+                    Track the chores and tasks your kids are doing. Reward them
+                    with points and prizes.
+                  </p>
+                  <br />
+                  <ul>
+                    <li className="flex items-center">
+                      <i className="fas fa-clipboard-list mr-2"></i>
+                      See who is actually doing what
+                    </li>
+                    <li className="flex items-center">
+                      <i className="fas fa-chart-bar mr-2"></i>
+                      Track progress
+                    </li>
+                    <li className="flex items-center">
+                      <i className="fas fa-bullseye mr-2"></i>
+                      Set goals
+                    </li>
+                    <li className="flex items-center">
+                      <i className="fas fa-gift mr-2"></i>
+                      Set rewards
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div className="card bg-base-300 shadow-xl mb-6 glass w-auto mx-auto text-lg ">
-              <div className="card-body">
-                <div className="card-title">
-                  <SubHeading
-                    title="Gamify Chores"
-                    iconClass="fas fa-clipboard-list mr-2"
-                  />
+            <div className="bg-base-300 p-5 rounded-md drop-shadow-md border">
+              <div className="card bg-base-300 shadow-xl mb-6 glass w-auto mx-auto text-lg ">
+                <div className="card-body">
+                  <div className="card-title">
+                    <SubHeading
+                      title="Gamify Chores"
+                      iconClass="fas fa-clipboard-list mr-2"
+                    />
+                  </div>
+                  <p>
+                    Make chores and tasks exciting by gamifying them to engage
+                    your kids.. Reward them with points and prizes
+                  </p>
+                  <ul>
+                    <li className="flex items-center">
+                      <i className="fas fa-trophy mr-2"></i>
+                      Reward Achievements
+                    </li>
+                    <li className="flex items-center">
+                      <i className="fas fa-medal mr-2"></i>
+                      Earn Badges
+                    </li>
+                    <li className="flex items-center">
+                      <i className="fas fa-flag-checkered mr-2"></i>
+                      Complete Challenges
+                    </li>
+                  </ul>
                 </div>
-                <p>
-                  Make chores and tasks exciting by gamifying them to engage
-                  your kids.. Reward them with points and prizes
-                </p>
-                <ul>
-                  <li className="flex items-center">
-                    <i className="fas fa-trophy mr-2"></i>
-                    Reward Achievements
-                  </li>
-                  <li className="flex items-center">
-                    <i className="fas fa-medal mr-2"></i>
-                    Earn Badges
-                  </li>
-                  <li className="flex items-center">
-                    <i className="fas fa-flag-checkered mr-2"></i>
-                    Complete Challenges
-                  </li>
-                </ul>
               </div>
             </div>
-            <div className="card bg-base-300 shadow-xl mb-6 glass mx-auto text-lg w-auto">
-              <div className="card-body">
-                <div className="card-title">
+            <div className="bg-base-300 p-5 rounded-md drop-shadow-md border">
+              <div className="card bg-base-300 shadow-xl mb-6 glass mx-auto text-lg w-auto">
+                <div className="card-body">
+                  <div className="card-title">
+                    <SubHeading
+                      title="Track and Display Progress"
+                      iconClass="fas fa-chart-line"
+                    />
+                  </div>
+                  <p>
+                    Our app introduces an interactive way to track chores and
+                    milestones, using engaging visual cues that add a layer of
+                    fun and motivation. By visualizing progress, users can
+                    easily see how close they are to completing their daily or
+                    weekly tasks, encouraging a sense of accomplishment and
+                    productivity.
+                  </p>
                   <SubHeading
-                    title="Track and Display Progress"
-                    iconClass="fas fa-chart-line"
+                    title="Visualize Milestones"
+                    iconClass="fas fa-flag-checkered"
                   />
+                  <p>
+                    As users advance in completing tasks, our dynamic progress
+                    bar visually represents their journey towards their goals.
+                    This not only serves as a reminder of how much they have
+                    achieved but also motivates them to reach the finish line.
+                  </p>
+                  <progress
+                    className="progress progress-success w-56"
+                    value="70"
+                    max="100"
+                  ></progress>
                 </div>
-                <p>
-                  Our app introduces an interactive way to track chores and
-                  milestones, using engaging visual cues that add a layer of fun
-                  and motivation. By visualizing progress, users can easily see
-                  how close they are to completing their daily or weekly tasks,
-                  encouraging a sense of accomplishment and productivity.
-                </p>
-                <SubHeading
-                  title="Visualize Milestones"
-                  iconClass="fas fa-flag-checkered"
-                />
-                <p>
-                  As users advance in completing tasks, our dynamic progress bar
-                  visually represents their journey towards their goals. This
-                  not only serves as a reminder of how much they have achieved
-                  but also motivates them to reach the finish line.
-                </p>
-                <progress
-                  className="progress progress-success w-56"
-                  value="70"
-                  max="100"
-                ></progress>
               </div>
             </div>
 
-            <div className="card bg-base-300 shadow-xl mb-6 glass  mx-auto text-lg w-auto">
-              <div className="card-body">
-                <SubHeading
-                  title="Simplifying Daily Tasks"
-                  iconClass="fas fa-broom"
-                />
-                <p>
-                  Our app is designed to simplify tracking chores for kids
-                  within a family. It&apos;s a practical tool that helps
-                  streamline household responsibilities. Every feature has been
-                  thoughtfully designed to make managing chores for kids easier
-                  and more enjoyable. We are dedicated to improving your
-                  family&apos;s daily life, evident in our interactive task
-                  lists and personalized reminders. As we continue to improve
-                  the app, we aim to provide you with a hassle-free way to
-                  manage your children&apos;s chores. This app adapts to your
-                  family&apos;s changing needs, making it more than just a
-                  utility – it&apos;s a flexible platform.
-                </p>
+            <div className="bg-base-300 p-5 rounded-md drop-shadow-md border">
+              <div className="card bg-base-300 shadow-xl mb-6 glass  mx-auto text-lg w-auto">
+                <div className="card-body">
+                  <SubHeading
+                    title="Simplifying Daily Tasks"
+                    iconClass="fas fa-broom"
+                  />
+                  <p>
+                    Our app is designed to simplify tracking chores for kids
+                    within a family. It&apos;s a practical tool that helps
+                    streamline household responsibilities. Every feature has
+                    been thoughtfully designed to make managing chores for kids
+                    easier and more enjoyable. We are dedicated to improving
+                    your family&apos;s daily life, evident in our interactive
+                    task lists and personalized reminders. As we continue to
+                    improve the app, we aim to provide you with a hassle-free
+                    way to manage your children&apos;s chores. This app adapts
+                    to your family&apos;s changing needs, making it more than
+                    just a utility – it&apos;s a flexible platform.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
           <SubHeading title="technologies" iconClass="fas fa-tools" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 place-items-center">
-            <div className="card bg-base-300 shadow-xl mb-6 glass text-lg place-items-center w-full mx-auto">
-              <div className="card-body">
-                <SubHeading
-                  title="User-Friendly Design"
-                  iconClass="fas fa-user-friends"
-                />
-                <ul className="list-disc pl-5">
-                  <li>
-                    <i className="fab fa-react"></i> Intuitive React Interfaces
-                  </li>
-                  <li>
-                    <i className="fas fa-mobile-alt"></i> Responsive Mobile
-                    Design
-                  </li>
-                  <li>
-                    <i className="fas fa-paint-brush"></i> Engaging Aesthetics
-                    with Tailwind CSS
-                  </li>
-                  <li>
-                    <i className="fas fa-magic"></i> Smooth Animations with
-                    Framer Motion
-                  </li>
-                </ul>
+            <div className="bg-base-300 p-5 rounded-md drop-shadow-md border w-full">
+              <div className="card bg-base-300 shadow-xl mb-6 glass text-lg place-items-center w-full mx-auto">
+                <div className="card-body">
+                  <SubHeading
+                    title="User-Friendly Design"
+                    iconClass="fas fa-user-friends"
+                  />
+                  <ul className="list-disc pl-5">
+                    <li>
+                      <i className="fab fa-react"></i> Intuitive React
+                      Interfaces
+                    </li>
+                    <li>
+                      <i className="fas fa-mobile-alt"></i> Responsive Mobile
+                      Design
+                    </li>
+                    <li>
+                      <i className="fas fa-paint-brush"></i> Engaging Aesthetics
+                      with Tailwind CSS
+                    </li>
+                    <li>
+                      <i className="fas fa-magic"></i> Smooth Animations with
+                      Framer Motion
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div className="card bg-base-300 shadow-xl mb-6 glass text-lg place-items-center w-full mx-auto">
-              <div className="card-body">
-                <SubHeading title="Robust Back-End" iconClass="fas fa-cogs" />
-                <ul className="list-disc pl-5">
-                  <li>
-                    <i className="fas fa-sync-alt"></i> Efficient Data
-                    Synchronization
-                  </li>
-                  <li>
-                    <i className="fas fa-cloud-upload-alt"></i> Cloud-Based
-                    Solutions
-                  </li>
-                  <li>
-                    <i className="fas fa-database"></i> Scalable Database
-                    Management with MongoDB
-                  </li>
-                  <li>
-                    <i className="fab fa-git-alt"></i> Version Control with Git
-                    & GitHub
-                  </li>
-                </ul>
+            <div className="bg-base-300 p-5 rounded-md drop-shadow-md border w-full">
+              <div className="card bg-base-300 shadow-xl mb-6 glass text-lg place-items-center w-full mx-auto">
+                <div className="card-body">
+                  <SubHeading title="Robust Back-End" iconClass="fas fa-cogs" />
+                  <ul className="list-disc pl-5">
+                    <li>
+                      <i className="fas fa-sync-alt"></i> Efficient Data
+                      Synchronization
+                    </li>
+                    <li>
+                      <i className="fas fa-cloud-upload-alt"></i> Cloud-Based
+                      Solutions
+                    </li>
+                    <li>
+                      <i className="fas fa-database"></i> Scalable Database
+                      Management with MongoDB
+                    </li>
+                    <li>
+                      <i className="fab fa-git-alt"></i> Version Control with
+                      Git & GitHub
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
