@@ -7,6 +7,10 @@ import HomeSubHeading from '@/components/ui/HomeSubHeading';
 const HomePage = () => {
   return (
     <>
+    <head>
+      <title>Chore Tracker</title>
+      <meta name="description" content="Chore Tracker" />
+    </head>
       <div
         className="hero min-h-screen"
         style={{
