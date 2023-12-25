@@ -1,3 +1,4 @@
+//src/models/chores.ts
 import mongoose, { Schema, model, Document } from 'mongoose';
 
 // Interface to define the type for a Chore Document
