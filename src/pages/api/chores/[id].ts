@@ -20,6 +20,16 @@ export default async function handler(
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' });
     }
+  } else if (req.method === 'DELETE') {
+    try {
+      const chore = await Chore.findByIdAndDelete(id);
+      if (!chore) {
+        return res.status(404).json({ error: 'Chore not found' });
+      }
+      res.status(200).json({ message: 'Chore deleted successfully' });
+    } catch (error) {
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
   } else {
     res.status(405).json({ error: 'Method not allowed' });
   }
