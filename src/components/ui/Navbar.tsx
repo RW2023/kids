@@ -4,6 +4,7 @@ import Link from 'next/link';
 import SubHeading from './SubHeading';
 import DarkModeToggle from './DarkModeToggle';
 import { motion, useAnimation } from 'framer-motion';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,6 +62,14 @@ const Navbar = () => {
             className="font-semibold text-xl tracking-tight cursor-pointer"
           >
             <div className="flex items-center">
+              {/* Logo Image */}
+              <Image
+                src="/img/logo.png" // Specify the path to your logo image
+                alt="Logo"
+                width={50}
+                height={50}
+                className="icon m-1 rounded-full"
+              />
               {/* SubHeading */}
               <SubHeading title="Chore Tracker" iconClass="fas fa-tasks" />
             </div>
