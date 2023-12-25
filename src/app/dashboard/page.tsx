@@ -14,6 +14,11 @@ const DashboardPage: FC<Props> = (): JSX.Element => {
   };
 
   return (
+    <>
+    <head>
+      <title>Dashboard</title>
+      <meta name="description" content="Chore Tracker dashboard/login" />
+    </head>
     <motion.div
       initial="initial"
       animate="animate"
@@ -41,6 +46,7 @@ const DashboardPage: FC<Props> = (): JSX.Element => {
 
       {/* Other dashboard components or sections */}
     </motion.div>
+    </>
   );
 };
 
