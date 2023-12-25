@@ -111,6 +111,7 @@ const HomePage = () => {
           <Link href={'/about'}>
             <button
               type="button"
+              aria-label="learn more button"
               className="btn  bg-button text-buttonText border-black hover:text-button hover:bg-buttonText rounded-md"
             >
               Learn More
