@@ -16,9 +16,11 @@ const HomePage = () => {
         <div className="hero-overlay bg-opacity-70"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
-            <HomeHeading title="Chore Master" iconClass="fas fa-home" />
+            <HomeHeading title="Chore tracker" iconClass="fas fa-home" />
             <HomeSubHeading
-              title="  household management app"
+              title='"I will pull my weight!"'            />
+            <HomeSubHeading
+              title="you can only track what you measure" iconClass='fas fa-chart-bar'
             />
             <Link href={'/login'}>
               <button
