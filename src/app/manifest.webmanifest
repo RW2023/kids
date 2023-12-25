@@ -1,0 +1,16 @@
+{
+  "name": "Chore Tracker App",
+  "short_name": "ChoreTracker",
+  "description": "A chore tracker app for kids",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#242932",
+  "theme_color": "#ACC6CF",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
