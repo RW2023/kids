@@ -10,10 +10,10 @@ const HomePage = () => {
       <div
         className="hero min-h-screen"
         style={{
-          backgroundImage: 'url(/img/kids3.jpg)',
+          backgroundImage: 'url(/img/choreHero4.png)',
         }}
       >
-        <div className="hero-overlay bg-opacity-70"></div>
+        <div className="hero-overlay bg-opacity-50"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
             <HomeHeading title="Chore tracker" iconClass="fas fa-home" />
