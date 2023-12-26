@@ -9,8 +9,7 @@ const Loading = () => {
           <span className="m-2">
             <span className="loading loading-bars loading-lg"></span>
           </span>{' '}
-          Loading.....The gallery will load momentarily☝🏾 Lots of pics. any
-          second now...⏱️
+          Loading.....Fetching Chores...⏱️
         </p>
       </div>
     </div>
