@@ -64,6 +64,8 @@ const DashboardPage: React.FC = () => {
         {isLoading ? (
           <Loading />
         ) : (
+          <>
+          <SubHeading title="Chores" iconClass="fas fa-tasks" />
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             {chores.map((chore) => (
               <div
@@ -80,6 +82,7 @@ const DashboardPage: React.FC = () => {
               </div>
             ))}
           </div>
+          </>
         )}
       </motion.div>
     </>
