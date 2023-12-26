@@ -8,19 +8,19 @@ const HomePage = () => {
   return (
     <>
       <div
-        className="hero min-h-screen"
-        style={{
-          backgroundImage: 'url(/img/choreHero4.png)',
-        }}
+        // className="hero min-h-screen"
+        // style={{
+        //   backgroundImage: 'url(/img/choreHero2.png)',
+        // }}
       >
-        <div className="hero-overlay bg-opacity-50"></div>
+        <div className="hero-overlay bg-opacity-10"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
             <HomeHeading title="Chore tracker" iconClass="fas fa-home" />
-            <HomeSubHeading title='"I will pull my weight!"' />
+            {/* <HomeSubHeading title='"I will pull my weight!"' /> */}
             <HomeSubHeading
-              title="you can only track what you measure"
-              iconClass="fas fa-chart-bar"
+              title="take control of your household"
+              iconClass="fas fa-cogs"
             />
             <Link href={'/login'}>
               <button
