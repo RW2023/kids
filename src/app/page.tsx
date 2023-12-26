@@ -7,9 +7,6 @@ import HomeSubHeading from '@/components/ui/HomeSubHeading';
 const HomePage = () => {
   return (
     <>
-    <head>
-      <title>Chore Tracker</title>
-    </head>
       <div
         className="hero min-h-screen"
         style={{
@@ -107,10 +104,7 @@ const HomePage = () => {
 
       <div className="py-12 bg-base-100">
         <div className="container mx-auto text-center">
-          <Link 
-          href={'/about'}
-         aria-label='learn more about Chore Tracker'
-          >
+          <Link href={'/about'} aria-label="learn more about Chore Tracker">
             <button
               type="button"
               aria-label="learn more"

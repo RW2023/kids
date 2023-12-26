@@ -18,6 +18,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" data-theme="dim">
       <head>
+        <title>Chore Tracker</title>
+        <meta
+          name="description"
+          content="Chore Tracker chores management app for kids"
+        />
         <meta name="theme-color" content="#ACC6CF" />
         <link
           rel="stylesheet"
