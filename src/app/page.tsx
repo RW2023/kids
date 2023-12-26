@@ -15,8 +15,8 @@ const HomePage = () => {
       >
         <div className="hero-overlay bg-opacity-10"></div>
         <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-md">
-            <HomeHeading title="Chore tracker" iconClass="fas fa-home" />
+          <div className="w-auto">
+            <HomeHeading title="Chore tracker" />
             {/* <HomeSubHeading title='"I will pull my weight!"' /> */}
             <HomeSubHeading
               title="take control of your household"
