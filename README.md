@@ -17,7 +17,7 @@ ChoreMaster is designed to help individuals and families manage their household 
 
 ## Skills Required
 
-Building and maintaining ChoreMaster requires a range of skills, primarily in web development. Below is a list of key skills:
+Building and maintaining ChoreMaster requires a range of skills in web development. Below is a list of key skills:
 
 - **React.js:** Proficiency in React.js for building a dynamic and responsive user interface.
 - **Tailwind CSS:** Using Tailwind CSS for styling, ensuring a modern and mobile-responsive design.
