@@ -240,8 +240,8 @@ export default function About() {
                       Solutions
                     </li>
                     <li>
-                      <i className="fas fa-database"></i> Scalable Database
-                      Management with MongoDB
+                      <i className="fas fa-database"></i> Scalable Data
+                      Management 
                     </li>
                     <li>
                       <i className="fab fa-git-alt"></i> Version Control with
