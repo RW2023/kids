@@ -52,7 +52,7 @@ export default function About() {
             animate="show"
             variants={slideInVariants}
           >
-            <Heading title="About chore tracker" iconClass="fas fa-info" />
+            <Heading title="About tracker" iconClass="fas fa-info" />
             <SubHeading
               title="you can only track what you measure"
               iconClass="fas fa-chart-bar"
