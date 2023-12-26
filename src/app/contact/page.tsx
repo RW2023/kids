@@ -13,14 +13,20 @@ const ContactPage: FC<Props> = (): JSX.Element => {
   };
 
   return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={pageTransitionVariants}
-    >
-      <Contact />
-    </motion.div>
+    <>
+      <head>
+        <title>Contact | Chore Tracker</title>
+        
+      </head>
+      <motion.div
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        variants={pageTransitionVariants}
+      >
+        <Contact />
+      </motion.div>
+    </>
   );
 };
 

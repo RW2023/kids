@@ -13,21 +13,26 @@ const FeedbackPage: FC<Props> = (): JSX.Element => {
   };
 
   return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={pageTransitionVariants}
-      className="flex flex-col justify-text-center m-auto"
-    >
-      <FeedbackForm />
-      <h2 className="font-sans text-center text 2xl mt-1 flex flex-col">
-        Submit Feedback Please!
-      </h2>
-      <p className="text-xl text-center flex flex-col">
-        Please submit any bugs, comments or suggestions 😊
-      </p>
-    </motion.div>
+    <>
+      <head>
+        <title>Feedback | Chore Tracker</title>
+      </head>
+      <motion.div
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        variants={pageTransitionVariants}
+        className="flex flex-col justify-text-center m-auto"
+      >
+        <FeedbackForm />
+        <h2 className="font-sans text-center text 2xl mt-1 flex flex-col">
+          Submit Feedback Please!
+        </h2>
+        <p className="text-xl text-center flex flex-col">
+          Please submit any bugs, comments or suggestions 😊
+        </p>
+      </motion.div>
+    </>
   );
 };
 
