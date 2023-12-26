@@ -8,10 +8,10 @@ const HomePage = () => {
   return (
     <>
       <div
-        // className="hero min-h-screen"
-        // style={{
-        //   backgroundImage: 'url(/img/choreHero2.png)',
-        // }}
+      // className="hero min-h-screen"
+      // style={{
+      //   backgroundImage: 'url(/img/choreHero2.png)',
+      // }}
       >
         <div className="hero-overlay bg-opacity-10"></div>
         <div className="hero-content text-center text-neutral-content">
@@ -26,7 +26,7 @@ const HomePage = () => {
               <button
                 type="button"
                 aria-label="get started button"
-                className="btn  bg-button text-buttonText border-black hover:text-button hover:bg-buttonText rounded-md"
+                className="btn  bg-button text-black border-black hover:text-button hover:bg-base-300 rounded-md"
               >
                 Login to your personalized dashboard
               </button>
@@ -108,7 +108,7 @@ const HomePage = () => {
             <button
               type="button"
               aria-label="learn more"
-              className="btn  bg-button text-buttonText border-black hover:text-button hover:bg-buttonText rounded-md"
+              className="btn  bg-button text-black border-black hover:text-button hover:bg-base-300 rounded-md"
             >
               Learn More about Chore Tracker
             </button>
