@@ -10,7 +10,7 @@ const Footer = () => {
         <Link href="/feedback">Feedback</Link>
       </nav>
       <nav>
-        <div className="grid grid-flow-col gap-4 text-3xl">
+        <div className="grid grid-flow-col gap-4 text-4xl">
           {/* GitHub */}
           <a
             href="https://github.com/RW2023/kids"
@@ -19,7 +19,7 @@ const Footer = () => {
             aria-label="GitHub"
           >
             <i className="fab fa-github"></i>
-            <span className="sr-only">GitHub</span>
+            <span className="sr-only">GitHub Repo Button</span>
           </a>
         </div>
       </nav>
