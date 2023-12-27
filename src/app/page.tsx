@@ -92,7 +92,7 @@ const HomePage = () => {
             iconClass="fas fa-question-circle"
           />
 
-          <p className="max-w-lg mx-auto text-xl">
+          <p className="max-w-lg mx-auto text-xl sm:p-2">
             Chore Tracker is designed to root out slackers. It is a simple and
             easy to use chore tracker that allows you to track who is pulling
             their weight and who is slacking. It is designed to be used by the
