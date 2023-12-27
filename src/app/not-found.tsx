@@ -6,7 +6,7 @@ function Custom404() {
   return (
     <div
       className="bg-base-100 min-h-screen flex items-center justify-center text-center "
-      data-theme="halloween"
+      data-theme="dim"
     >
       <div className="card bordered p-10 shadow-xl bg-base-300 mx-auto w-3/4">
         <div className="border rounded p-4 bg-base-100">
