@@ -19,7 +19,7 @@ const Heading: FC<Props> = ({ title, iconClass }): JSX.Element => {
 
   return (
     <h1
-      className="text-center font-poppins text-5xl m-2 font-bold flex justify-center items-center"
+      className="text-center font-poppins text-5xl m-2 font-bold flex justify-center items-center drop-shadow-xl"
       style={{
         textShadow:
           '1px 1px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000',
