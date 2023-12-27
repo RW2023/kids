@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import { usePathname } from 'next/navigation'; // Import only usePathname
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 // Define a type for the component's props
 interface RootLayoutProps {
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body>
         {!isHomepage && <Navbar />}
         {children}
+        <SpeedInsights />
       </body>
       <Footer />
     </html>
