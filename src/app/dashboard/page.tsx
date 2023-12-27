@@ -1,24 +1,25 @@
 'use client';
+//src/app/dashboard/page.tsx
 import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 import SubHeading from '@/components/ui/SubHeading';
 import { motion } from 'framer-motion';
-import { fetchChores } from '@/services/choreService';
+import { supabase } from '@/utils/supabaseClient';
 import Loading from '@/components/ui/Loading';
 
 interface Subtask {
+  id: number;
   title: string;
   status: string;
-  // Add other fields as needed
 }
 
 interface Chore {
-  _id: string;
+  id: number;
   title: string;
   description: string;
   status: string;
-  rewardPoints: number;
+  rewardPoints?: number; // Optional: include if it exists in your Supabase schema
   subtasks: Subtask[];
-  __v: number;
 }
 
 const DashboardPage: React.FC = () => {
@@ -27,14 +28,29 @@ const DashboardPage: React.FC = () => {
 
   useEffect(() => {
     const loadChores = async () => {
-      try {
-        const data = await fetchChores();
-        setChores(data);
-      } catch (error) {
+      setLoading(true);
+      const { data, error } = await supabase
+        .from('chores')
+        .select(`
+          id,
+          title,
+          description,
+          status,
+          rewardPoints,
+          subtasks (
+            id,
+            title,
+            status
+          )
+        `);
+
+      if (error) {
         console.error('Error fetching chores:', error);
-      } finally {
-        setLoading(false);
+      } else {
+        setChores(data || []);
       }
+
+      setLoading(false);
     };
 
     loadChores();
@@ -48,10 +64,10 @@ const DashboardPage: React.FC = () => {
 
   return (
     <>
-      <head>
-        <title>Dashboard</title>
+      <Head>
+        <title>Dashboard | Chore Tracker</title>
         <meta name="description" content="Chore Tracker dashboard/login" />
-      </head>
+      </Head>
       <motion.div
         initial="initial"
         animate="animate"
@@ -65,23 +81,23 @@ const DashboardPage: React.FC = () => {
           <Loading />
         ) : (
           <>
-          <SubHeading title="Chores List" iconClass="fas fa-tasks" />
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            {chores.map((chore) => (
-              <div
-                key={chore._id}
-                className="card bg-base-300 shadow-xl glass text-lg p-6"
-              >
-                <h2 className="text-xl font-semibold">{chore.title}</h2>
-                <p>{chore.description}</p>
-                <ul>
-                  {chore.subtasks.map((subtask, index) => (
-                    <li key={index}>{subtask.title}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+            <SubHeading title="Chores List" iconClass="fas fa-tasks" />
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              {chores.map((chore) => (
+                <div
+                  key={chore.id}
+                  className="card bg-base-300 shadow-xl glass text-lg p-6"
+                >
+                  <h2 className="text-xl font-semibold">{chore.title}</h2>
+                  <p>{chore.description}</p>
+                  <ul>
+                    {chore.subtasks && chore.subtasks.map((subtask, index) => (
+                      <li key={index}>{subtask.title}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </>
         )}
       </motion.div>
