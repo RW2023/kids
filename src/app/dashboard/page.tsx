@@ -65,7 +65,7 @@ const DashboardPage: React.FC = () => {
           <Loading />
         ) : (
           <>
-          <SubHeading title="Chores" iconClass="fas fa-tasks" />
+          <SubHeading title="Chores List" iconClass="fas fa-tasks" />
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             {chores.map((chore) => (
               <div
