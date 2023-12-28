@@ -17,8 +17,10 @@ interface Subtask {
 interface Chore {
   id: number;
   title: string;
-  // Other fields commented out for the starting version
+  description?: string; // Add the description field
+  status: string;
 }
+
 
 const DashboardPage: React.FC = () => {
   const [chores, setChores] = useState<Chore[]>([]);
@@ -30,7 +32,7 @@ const DashboardPage: React.FC = () => {
       try {
         const { data, error } = await supabase
           .from('chores')
-          .select('id, title');
+          .select('id, title, description, status'); // Include description
 
         if (error) {
           throw error;
@@ -78,7 +80,8 @@ const DashboardPage: React.FC = () => {
                 className="card bg-base-300 shadow-xl glass text-lg p-6"
               >
                 <h2 className="text-xl font-semibold">{chore.title}</h2>
-                {/* Other fields are not rendered in the starting version */}
+                <p>{chore.description}</p> {/* Render the description */}
+                <p>Status: {chore.status}</p> {/* Render the status */}
               </div>
             ))}
           </div>
