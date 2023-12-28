@@ -18,6 +18,7 @@ interface Chore {
   id: number;
   title: string;
   description?: string; // Add the description field
+  status: string;
 }
 
 
@@ -31,7 +32,7 @@ const DashboardPage: React.FC = () => {
       try {
         const { data, error } = await supabase
           .from('chores')
-          .select('id, title, description'); // Include description
+          .select('id, title, description, status'); // Include description
 
         if (error) {
           throw error;
@@ -80,6 +81,7 @@ const DashboardPage: React.FC = () => {
               >
                 <h2 className="text-xl font-semibold">{chore.title}</h2>
                 <p>{chore.description}</p> {/* Render the description */}
+                <p>Status: {chore.status}</p> {/* Render the status */}
               </div>
             ))}
           </div>
