@@ -11,6 +11,8 @@ const HomePage = () => {
       className="hero min-h-screen"
       style={{
         backgroundImage: 'url(/img/boyVids.png)',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
       }}
       >
         <div className="hero-overlay bg-opacity-10"></div>
