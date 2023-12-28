@@ -73,17 +73,25 @@ const DashboardPage: React.FC = () => {
         {isLoading ? (
           <Loading />
         ) : (
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            {chores.map((chore) => (
-              <div
-                key={chore.id}
-                className="card bg-base-300 shadow-xl glass text-lg p-6"
-              >
-                <h2 className="text-xl font-semibold">{chore.title}</h2>
-                <p>{chore.description}</p> {/* Render the description */}
-                <p>Status: {chore.status}</p> {/* Render the status */}
-              </div>
-            ))}
+          <div
+            className="hero h-1/2 bg-base-200 rounded-box bg-opacity-10 border-base-300 border-2"
+            style={{
+              backgroundImage: `url(/img/boyVids.png)`,
+            }}
+          >
+            
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 p-2">
+              {chores.map((chore) => (
+                <div
+                  key={chore.id}
+                  className="card bg-base-300 shadow-xl glass text-lg p-6"
+                >
+                  <h2 className="text-xl font-semibold">{chore.title}</h2>
+                  <p>{chore.description}</p> {/* Render the description */}
+                  <p>Status: {chore.status}</p> {/* Render the status */}
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </motion.div>
