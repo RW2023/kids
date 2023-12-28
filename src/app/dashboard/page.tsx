@@ -1,5 +1,6 @@
 'use client';
-//src/app/dashboard/page.tsx
+// src/app/dashboard/page.tsx
+
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import SubHeading from '@/components/ui/SubHeading';
@@ -16,10 +17,7 @@ interface Subtask {
 interface Chore {
   id: number;
   title: string;
-  description: string;
-  status: string;
-  rewardPoints?: number; // Optional: include if it exists in your Supabase schema
-  subtasks: Subtask[];
+  // Other fields commented out for the starting version
 }
 
 const DashboardPage: React.FC = () => {
@@ -27,33 +25,26 @@ const DashboardPage: React.FC = () => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadChores = async () => {
+    const fetchChores = async () => {
       setLoading(true);
-      const { data, error } = await supabase
-        .from('chores')
-        .select(`
-          id,
-          title,
-          description,
-          status,
-          rewardPoints,
-          subtasks (
-            id,
-            title,
-            status
-          )
-        `);
+      try {
+        const { data, error } = await supabase
+          .from('chores')
+          .select('id, title');
 
-      if (error) {
-        console.error('Error fetching chores:', error);
-      } else {
+        if (error) {
+          throw error;
+        }
+
         setChores(data || []);
+      } catch (error) {
+        console.error('Error fetching chores:', error);
+      } finally {
+        setLoading(false);
       }
-
-      setLoading(false);
     };
 
-    loadChores();
+    fetchChores();
   }, []);
 
   const pageTransitionVariants = {
@@ -80,25 +71,17 @@ const DashboardPage: React.FC = () => {
         {isLoading ? (
           <Loading />
         ) : (
-          <>
-            <SubHeading title="Chores List" iconClass="fas fa-tasks" />
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-              {chores.map((chore) => (
-                <div
-                  key={chore.id}
-                  className="card bg-base-300 shadow-xl glass text-lg p-6"
-                >
-                  <h2 className="text-xl font-semibold">{chore.title}</h2>
-                  <p>{chore.description}</p>
-                  <ul>
-                    {chore.subtasks && chore.subtasks.map((subtask, index) => (
-                      <li key={index}>{subtask.title}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </>
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {chores.map((chore) => (
+              <div
+                key={chore.id}
+                className="card bg-base-300 shadow-xl glass text-lg p-6"
+              >
+                <h2 className="text-xl font-semibold">{chore.title}</h2>
+                {/* Other fields are not rendered in the starting version */}
+              </div>
+            ))}
+          </div>
         )}
       </motion.div>
     </>
