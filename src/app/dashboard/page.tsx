@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
+import Heading from '@/components/ui/Heading';
 import SubHeading from '@/components/ui/SubHeading';
 import { motion } from 'framer-motion';
 import { supabase } from '@/utils/supabaseClient';
@@ -58,10 +59,11 @@ const DashboardPage: React.FC = () => {
 
   return (
     <>
-      <Head>
+      <head>
         <title>Dashboard | Chore Tracker</title>
         <meta name="description" content="Chore Tracker dashboard/login" />
-      </Head>
+        <title>Chore Tracker | Dashboard</title>
+      </head>
       <motion.div
         initial="initial"
         animate="animate"
@@ -69,7 +71,7 @@ const DashboardPage: React.FC = () => {
         variants={pageTransitionVariants}
         className="container mx-auto p-6 min-h-screen"
       >
-        <SubHeading title="Dashboard" iconClass="fas fa-tachometer-alt" />
+        <Heading title="Dashboard" iconClass="fas fa-tachometer-alt" />
         <SubHeading title="Chores list" iconClass="fas fa-clipboard-list" />
 
         {isLoading ? (

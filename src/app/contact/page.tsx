@@ -15,7 +15,7 @@ const ContactPage: FC<Props> = (): JSX.Element => {
   return (
     <>
       <head>
-        <title>Contact | Chore Tracker</title>
+        <title>Chore Tracker | Contact</title>
         
       </head>
       <motion.div

@@ -15,7 +15,7 @@ const FeedbackPage: FC<Props> = (): JSX.Element => {
   return (
     <>
       <head>
-        <title>Feedback | Chore Tracker</title>
+        <title>Chore Tracker | Feedback</title>
       </head>
       <motion.div
         initial="initial"

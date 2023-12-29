@@ -6,7 +6,7 @@ const Login = () => {
   return (
     <>
       <head>
-        <title>Login</title>
+        <title>Chore Tracker | Login</title>
       </head>
       <meta name="description" content="Chore Tracker login page" />
       <div className="hero min-h-screen bg-base-200 text-lg">
