@@ -69,6 +69,7 @@ const DashboardPage: React.FC = () => {
         className="container mx-auto p-6 min-h-screen"
       >
         <SubHeading title="Dashboard" iconClass="fas fa-tachometer-alt" />
+        <SubHeading title="Chores list" iconClass="fas fa-clipboard-list" />
 
         {isLoading ? (
           <Loading />
@@ -92,15 +93,18 @@ const DashboardPage: React.FC = () => {
                     </h2>
                   </div>
                   <div className="card-body text-base-300">
-                    <p className='text-lg'>{chore.description}</p> {/* Render the description */}
-                    <p className='text-lg'>
+                    <p className="text-lg">{chore.description}</p>{' '}
+                    {/* Render the description */}
+                    <p className="text-lg">
                       {chore.status === 'completed' ? (
                         <i className="fas fa-check-circle mr-2"></i>
                       ) : (
                         <i className="fas fa-times-circle mr-2"></i>
                       )}
                       Status: {chore.status}
-                    </p> {/* Render the status */}                  </div>
+                    </p>{' '}
+                    {/* Render the status */}{' '}
+                  </div>
                 </div>
               ))}
             </div>
