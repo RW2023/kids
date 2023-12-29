@@ -28,7 +28,7 @@ const HomePage = () => {
               <button
                 type="button"
                 aria-label="get started button"
-                className="btn  bg-button text-black border-black hover:text-button hover:bg-base-300 rounded-md"
+                className="btn glass sm:text-xl bg-button text-black border-black hover:text-button hover:bg-base-300 rounded-md"
               >
                 Login to your personalized dashboard
               </button>
@@ -110,7 +110,7 @@ const HomePage = () => {
             <button
               type="button"
               aria-label="learn more"
-              className="btn  bg-button text-black border-black hover:text-button hover:bg-base-300 rounded-md"
+              className="btn glass  bg-button text-black border-black hover:text-button hover:bg-base-300 rounded-md sm:text-xl"
             >
               Learn More about Chore Tracker
             </button>
