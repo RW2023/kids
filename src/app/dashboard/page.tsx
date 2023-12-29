@@ -69,26 +69,42 @@ const DashboardPage: React.FC = () => {
         className="container mx-auto p-6 min-h-screen"
       >
         <SubHeading title="Dashboard" iconClass="fas fa-tachometer-alt" />
+        <SubHeading title="Chores list" iconClass="fas fa-clipboard-list" />
 
         {isLoading ? (
           <Loading />
         ) : (
           <div
-            className="hero h-1/2 bg-base-200 rounded-box bg-opacity-10 border-base-300 border-2"
+            className="hero h-1/2 bg-base-200 rounded-box bg-opacity-10 border-base-300 border-2 drop-shadow-lg"
             style={{
               backgroundImage: `url(/img/boyVids.png)`,
             }}
           >
-            
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 p-2">
+            <div className="grid grid-cols-1 sm:gap-2 gap-6 lg:grid-cols-2 p-2">
               {chores.map((chore) => (
                 <div
                   key={chore.id}
-                  className="card bg-base-300 shadow-xl glass text-lg p-6"
+                  className="card-compact bg-base-500  shadow-xl glass text-lg p-6 rounded"
                 >
-                  <h2 className="text-xl font-semibold">{chore.title}</h2>
-                  <p>{chore.description}</p> {/* Render the description */}
-                  <p>Status: {chore.status}</p> {/* Render the status */}
+                  <div className="card-title  flex-col justify-center items-center font-bold border-y">
+                    <i className="fas fa-thumbtack mr-2 mt-2 text-base-300"></i>
+                    <h2 className="text-xl font-semibold text-base-300 ">
+                      {chore.title}
+                    </h2>
+                  </div>
+                  <div className="card-body text-base-300">
+                    <p className="text-lg">{chore.description}</p>{' '}
+                    {/* Render the description */}
+                    <p className="text-lg">
+                      {chore.status === 'completed' ? (
+                        <i className="fas fa-check-circle mr-2"></i>
+                      ) : (
+                        <i className="fas fa-times-circle mr-2"></i>
+                      )}
+                      Status: {chore.status}
+                    </p>{' '}
+                    {/* Render the status */}{' '}
+                  </div>
                 </div>
               ))}
             </div>
