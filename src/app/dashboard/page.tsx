@@ -7,6 +7,7 @@ import SubHeading from '@/components/ui/SubHeading';
 import { motion } from 'framer-motion';
 import { supabase } from '@/utils/supabaseClient';
 import Loading from '@/components/ui/Loading';
+import Image from 'next/image';
 
 interface Subtask {
   id: number;
@@ -74,12 +75,14 @@ const DashboardPage: React.FC = () => {
         {isLoading ? (
           <Loading />
         ) : (
-          <div
-            className="hero h-1/2 bg-base-200 rounded-box bg-opacity-10 border-base-300 border-2 drop-shadow-lg"
-            style={{
-              backgroundImage: `url(/img/boyVids.png)`,
-            }}
-          >
+          <div className="hero min-h-screen bg-base-200 rounded-box bg-opacity-10 border-base-300 border-2 drop-shadow-lg relative">
+            <Image
+              src="/img/boyVids.png"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+              alt="Background image"
+            />
             <div className="grid grid-cols-1 sm:gap-2 gap-6 lg:grid-cols-2 p-2">
               {chores.map((chore) => (
                 <div
@@ -93,7 +96,7 @@ const DashboardPage: React.FC = () => {
                     </h2>
                   </div>
                   <div className="card-body text-base-300">
-                    <p className="text-lg">{chore.description}</p>{' '}
+                    <p className="text-lg">{chore.description}</p>
                     {/* Render the description */}
                     <p className="text-lg">
                       {chore.status === 'completed' ? (
@@ -102,8 +105,8 @@ const DashboardPage: React.FC = () => {
                         <i className="fas fa-times-circle mr-2"></i>
                       )}
                       Status: {chore.status}
-                    </p>{' '}
-                    {/* Render the status */}{' '}
+                    </p>
+                    {/* Render the status */}
                   </div>
                 </div>
               ))}
