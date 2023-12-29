@@ -19,10 +19,13 @@ interface Subtask {
 interface Chore {
   id: number;
   title: string;
-  description?: string; // Add the description field
+  description?: string;
   status: string;
+  created_at?: string;
+  updated_at?: string;
+  user_id?: string;
+  subtasks: Subtask[];
 }
-
 
 const DashboardPage: React.FC = () => {
   const [chores, setChores] = useState<Chore[]>([]);
@@ -32,9 +35,20 @@ const DashboardPage: React.FC = () => {
     const fetchChores = async () => {
       setLoading(true);
       try {
-        const { data, error } = await supabase
-          .from('chores')
-          .select('id, title, description, status'); // Include description
+        const { data, error } = await supabase.from('chores').select(`
+          id,
+          title,
+          description,
+          status,
+          created_at,
+          updated_at,
+          user_id,
+          subtasks (
+            id,
+            title,
+            status
+          )
+        `);
 
         if (error) {
           throw error;
@@ -59,11 +73,10 @@ const DashboardPage: React.FC = () => {
 
   return (
     <>
-      <head>
+      <Head>
         <title>Dashboard | Chore Tracker</title>
         <meta name="description" content="Chore Tracker dashboard/login" />
-        <title>Chore Tracker | Dashboard</title>
-      </head>
+      </Head>
       <motion.div
         initial="initial"
         animate="animate"
@@ -89,17 +102,16 @@ const DashboardPage: React.FC = () => {
               {chores.map((chore) => (
                 <div
                   key={chore.id}
-                  className="card-compact bg-base-500  shadow-xl glass text-lg p-6 rounded"
+                  className="card-compact bg-base-500 shadow-xl glass text-lg p-6 rounded"
                 >
-                  <div className="card-title  flex-col justify-center items-center font-bold border-y">
+                  <div className="card-title flex-col justify-center items-center font-bold border-y">
                     <i className="fas fa-thumbtack mr-2 mt-2 text-base-300"></i>
-                    <h2 className="text-xl font-semibold text-base-300 ">
+                    <h2 className="text-xl font-semibold text-base-300">
                       {chore.title}
                     </h2>
                   </div>
                   <div className="card-body text-base-300">
                     <p className="text-lg">{chore.description}</p>
-                    {/* Render the description */}
                     <p className="text-lg">
                       {chore.status === 'completed' ? (
                         <i className="fas fa-check-circle mr-2"></i>
@@ -108,7 +120,19 @@ const DashboardPage: React.FC = () => {
                       )}
                       Status: {chore.status}
                     </p>
-                    {/* Render the status */}
+                    {chore.subtasks.map((subtask) => (
+                      <div key={subtask.id} className="subtask text-lg">
+                        {subtask.title} - Status:
+                        <select
+                          title="Status"
+                          value={subtask.status}
+                          onChange={(e) => console.log(e.target.value)} // Placeholder for actual change handling
+                        >
+                          <option value="completed">Completed</option>
+                          <option value="incomplete">Incomplete</option>
+                        </select>
+                      </div>
+                    ))}
                   </div>
                 </div>
               ))}
