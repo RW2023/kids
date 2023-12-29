@@ -79,7 +79,7 @@ const DashboardPage: React.FC = () => {
               backgroundImage: `url(/img/boyVids.png)`,
             }}
           >
-            <div className="grid grid-cols-1 sm:gap-2 lg:gap-6 lg:grid-cols-2 p-2">
+            <div className="grid grid-cols-1 sm:gap-2 gap-6 lg:grid-cols-2 p-2">
               {chores.map((chore) => (
                 <div
                   key={chore.id}
