@@ -121,16 +121,27 @@ const DashboardPage: React.FC = () => {
                       Status: {chore.status}
                     </p>
                     {chore.subtasks.map((subtask) => (
-                      <div key={subtask.id} className="subtask text-lg">
-                        {subtask.title} - Status:
-                        <select
-                          title="Status"
-                          value={subtask.status}
-                          onChange={(e) => console.log(e.target.value)} // Placeholder for actual change handling
+                      <div
+                        key={subtask.id}
+                        className="subtask text-lg flex items-center"
+                      >
+                        <input
+                        className='form-checkbox h-5 w-5'
+                          type="checkbox"
+                          id={`subtask-${subtask.id}`}
+                          checked={subtask.status === 'completed'}
+                          onChange={(e) =>
+                            console.log(
+                              `Subtask ID: ${subtask.id}, Completed: ${e.target.checked}`,
+                            )
+                          } // Placeholder for actual change handling
+                        />
+                        <label
+                          htmlFor={`subtask-${subtask.id}`}
+                          className="ml-2"
                         >
-                          <option value="completed">Completed</option>
-                          <option value="incomplete">Incomplete</option>
-                        </select>
+                          {subtask.title}
+                        </label>
                       </div>
                     ))}
                   </div>
