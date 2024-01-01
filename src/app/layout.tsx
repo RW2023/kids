@@ -17,14 +17,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
   const isHomepage = pathname === '/';
 
   return (
-    <html lang="en" data-theme="dim">
+    <html lang="en" data-theme="business">
       <head>
         <title>Chore Tracker</title>
         <meta
           name="description"
           content="Chore Tracker chores management app for kids"
         />
-        <meta name="theme-color" content="#ACC6CF" />
+        <meta name="theme-color" content="#000" />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
