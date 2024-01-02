@@ -3,6 +3,7 @@ module.exports = {
   daisyui: {
     themes: true,
   },
+  darkMode: 'class',
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',

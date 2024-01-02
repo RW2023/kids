@@ -2,9 +2,9 @@
 import React from 'react';
 
 const DarkModeToggle = () => {
-  const toggleDarkMode = () => {
-    document.body.classList.toggle('light');
-  };
+ const toggleDarkMode = () => {
+   document.documentElement.classList.toggle('dark');
+ };
 
   return (
     <label className="swap swap-rotate">
