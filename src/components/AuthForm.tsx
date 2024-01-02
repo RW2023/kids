@@ -8,6 +8,7 @@ const AuthForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [isLogin, setIsLogin] = useState(true); // Toggle between login and registration
+  console.log(isLogin)
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
