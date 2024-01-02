@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/utils/supabaseClient';
+// import handleLogout from '@/utils/logout';
 
 const AuthForm = () => {
   const [email, setEmail] = useState('');
@@ -10,19 +11,33 @@ const AuthForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [isLogin, setIsLogin] = useState(true);
+  console.log('isLogin', isLogin);
   const router = useRouter();
-useEffect(() => {
-  const checkSession = async () => {
-    const { data: session } = await supabase.auth.getSession();
-    if (session) {
-      setError('Already logged in. Redirecting to dashboard...');
-      setTimeout(() => {
-        router.push('/dashboard');
-      }, 2000); // Redirect after 2 seconds
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data: session } = await supabase.auth.getSession();
+      if (session) {
+        setError('Already logged in. Redirecting to dashboard...');
+        setTimeout(() => {
+          router.push('/dashboard');
+        }, 7000); // Redirect after 5 seconds
+      }
+    };
+    checkSession();
+  }, [router]);
+
+  // Logout function
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.error('Error logging out:', error);
+    } else {
+          setIsLogin(false); // Set isLogin to false upon logout
+          router.push('/login');
+      // Optionally redirect to login page or handle the logged out state
+      router.push('/login'); // If using useRouter
     }
   };
-  checkSession();
-}, [router]);
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -119,13 +134,14 @@ useEffect(() => {
 
         <div className="divider">OR</div>
 
-        <button
+        {/* <button
           className="btn btn-outline bg-button text-black w-full"
           onClick={handleGitHubLogin}
         >
           <i className="fab fa-github text-3xl"></i>
           Login with GitHub
-        </button>
+        </button> */}
+        <button onClick={handleLogout}>Logout</button>
 
         <p className="text-center mt-4">
           {isLogin ? "Don't have an account?" : 'Already have an account?'}
