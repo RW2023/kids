@@ -1,26 +1,50 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { supabase } from '@/utils/supabaseClient';
 
 const AuthForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [verifyPassword, setVerifyPassword] = useState(''); // New state for verify password
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [isLogin, setIsLogin] = useState(true); // Toggle between login and registration
-  console.log(isLogin)
+  const [isLogin, setIsLogin] = useState(true);
+  const router = useRouter();
+useEffect(() => {
+  const checkSession = async () => {
+    const { data: session } = await supabase.auth.getSession();
+    if (session) {
+      setError('Already logged in. Redirecting to dashboard...');
+      setTimeout(() => {
+        router.push('/dashboard');
+      }, 2000); // Redirect after 2 seconds
+    }
+  };
+  checkSession();
+}, [router]);
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError('');
 
-    const action = isLogin
-      ? supabase.auth.signInWithPassword({ email, password })
-      : supabase.auth.signUp({ email, password });
+    // Check if passwords match when signing up
+    if (!isLogin && password !== verifyPassword) {
+      setError("Passwords don't match");
+      setLoading(false);
+      return;
+    }
 
-    const { error } = await action;
-    if (error) setError(error.message);
+    const action = isLogin
+      ? await supabase.auth.signInWithPassword({ email, password })
+      : await supabase.auth.signUp({ email, password });
+
+    if (action.error) {
+      setError(action.error.message);
+    } else if (action.data.user) {
+      router.push('/dashboard'); // Redirect to dashboard on successful login/signup
+    }
     setLoading(false);
   };
 
@@ -28,7 +52,9 @@ const AuthForm = () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'github',
     });
-    if (error) setError(error.message);
+    if (error) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -67,6 +93,21 @@ const AuthForm = () => {
               disabled={loading}
             />
           </div>
+          {!isLogin && (
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Verify Password</span>
+              </label>
+              <input
+                type="password"
+                placeholder="Verify Password"
+                className="input input-bordered"
+                value={verifyPassword}
+                onChange={(e) => setVerifyPassword(e.target.value)}
+                disabled={loading}
+              />
+            </div>
+          )}
           <button
             type="submit"
             className={`btn btn-primary w-full ${loading ? 'loading' : ''}`}
