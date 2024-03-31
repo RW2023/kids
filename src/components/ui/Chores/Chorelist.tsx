@@ -1,8 +1,9 @@
+'use client'
 import React, { useState, useEffect } from 'react';
 import { supabase } from '@/utils/supabaseClient'; // Adjust the import path as necessary
 import { Database } from '@/lib/database.types'; // Adjust the import path as necessary
 import Chore from './Chore'; // Make sure this path points to your Chore component
-
+import Loading from '../Loading';
 const ChoreList: React.FC = () => {
   const [chores, setChores] = useState<
     (Database['public']['Tables']['chores']['Row'] & {
@@ -45,7 +46,7 @@ const ChoreList: React.FC = () => {
   return (
     <div>
       {isLoading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : (
         chores.map((chore) => <Chore key={chore.id} chore={chore} />)
       )}
