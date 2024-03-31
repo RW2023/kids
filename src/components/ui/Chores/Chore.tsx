@@ -10,7 +10,7 @@ interface ChoreProps {
   };
 }
 
-//The date is ugly and needs to be formatted. Created a helper function to format the date
+// Helper function to format the date
 const formatDate = (dateString: string) => {
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
@@ -24,28 +24,45 @@ const formatDate = (dateString: string) => {
   return new Intl.DateTimeFormat('en-US', options).format(date);
 };
 
+// Helper function to determine badge class based on chore status
+const getBadgeClass = (status: string) => {
+  switch (status.toLowerCase()) {
+    case 'completed':
+      return 'badge-success'; // Green for completed chores
+    case 'pending':
+      return 'badge-error';   // Red for pending chores
+    case 'in progress':
+      return 'badge-info';    // Blue or any other color for in-progress chores
+    default:
+      return 'badge-secondary'; // Gray or any other neutral color for undefined statuses
+  }
+};
+
 
 const Chore: React.FC<ChoreProps> = ({ chore }) => {
   return (
     <div className="bg-base-100 rounded border-2 p-4 m-4 relative shadow-lg card-compact">
-      <div className="title bg-base-300  rounded">
+      <div className="title bg-base-300 rounded">
         <SubHeading title={chore.title} />
       </div>
       <div className="card-body bg-base-300 rounded-md shadow-lg">
         <p>{chore.description}</p>
         <div>
-          Status: <span className="badge badge-error ">{chore.status}</span>
+          Status:{' '}
+          <span className={`badge ${getBadgeClass(chore.status)}`}>
+            {chore.status}
+          </span>
         </div>
         <div>
-          Assigned: Assigned:{' '}
+          Assigned:{' '}
           <span className="badge badge-info p-5 text-xs font-bold">
-            {chore.created_at ? formatDate(chore.created_at) : ''}
+            {chore.created_at ? formatDate(chore.created_at) : 'N/A'}
           </span>
         </div>
         <div>
           Last Updated:{' '}
           <span className="badge badge-info p-5 text-xs font-bold">
-            {chore.updated_at ? formatDate(chore.updated_at) : ''}
+            {chore.updated_at ? formatDate(chore.updated_at) : 'N/A'}
           </span>
         </div>
         <div className="mt-4">
