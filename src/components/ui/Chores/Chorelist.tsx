@@ -1,11 +1,9 @@
-'use client'
+'use client';
 import React, { useState, useEffect } from 'react';
 import { supabase } from '@/utils/supabaseClient'; // Adjust the import path as necessary
 import { Database } from '@/lib/database.types'; // Adjust the import path as necessary
 import Chore from './Chore'; // Make sure this path points to your Chore component
 import Loading from '../Loading';
-import Hero from '@/components/Hero'
-
 
 const ChoreList: React.FC = () => {
   const [chores, setChores] = useState<
@@ -47,15 +45,13 @@ const ChoreList: React.FC = () => {
   }, []);
 
   return (
-     <Hero img='/img/choreHero.png'>
-       <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4">
-        {isLoading ? (
-          <Loading />
-        ) : (
-          chores.map((chore) => <Chore key={chore.id} chore={chore} />)
-        )}
-           </div>
-     </Hero>
+    <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-4">
+      {isLoading ? (
+        <Loading />
+      ) : (
+        chores.map((chore) => <Chore key={chore.id} chore={chore} />)
+      )}
+    </div>
   );
 };
 
