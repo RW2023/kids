@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { useState, useEffect } from 'react';
+'use client';
+import { FC, useState, useEffect } from 'react';
 import { Database } from '@/lib/database.types';
 import { supabase } from '@/utils/supabaseClient';
 import { motion } from 'framer-motion';
@@ -7,7 +7,9 @@ import SubHeading from '@/components/ui/SubHeading';
 import Loading from '@/components/ui/Loading';
 import Image from 'next/image';
 
-type Chore = Database['public']['Tables']['chores']['Row'];
+type Chore = Database['public']['Tables']['chores']['Row'] & {
+  subtasks: Database['public']['Tables']['subtasks']['Row'][];
+};
 
 interface Props {}
 
@@ -17,32 +19,35 @@ const pageTransitionVariants = {
   exit: { opacity: 0 },
 };
 
-const Page: FC<Props> = (props): JSX.Element => {
+const Page: FC<Props> = () => {
   const [chores, setChores] = useState<Chore[]>([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchChores = async () => {
+    const fetchChoresAndSubtasks = async () => {
       setLoading(true);
       try {
-        const { data, error } = await supabase.from('chores').select(`
+        let { data: choresData, error: choresError } = await supabase.from(
+          'chores',
+        ).select(`
             id,
             title,
             description,
             status,
             created_at,
             updated_at,
-            user_id
+            user_id,
+            subtasks:subtasks!inner(*)
           `);
 
-        if (error) {
-          throw error;
+        if (choresError) {
+          throw choresError;
         }
 
-        setChores(data as Chore[]);
+        setChores(choresData as Chore[]);
       } catch (error) {
         console.error(
-          'Error fetching chores:',
+          'Error fetching chores and subtasks:',
           error instanceof Error ? error.message : error,
         );
       } finally {
@@ -50,7 +55,7 @@ const Page: FC<Props> = (props): JSX.Element => {
       }
     };
 
-    fetchChores();
+    fetchChoresAndSubtasks();
   }, []);
 
   return (
@@ -67,41 +72,26 @@ const Page: FC<Props> = (props): JSX.Element => {
         {isLoading ? (
           <Loading />
         ) : (
-          <div className="hero min-h-screen bg-base-200 rounded-box bg-opacity-10 border-base-300 border-2 drop-shadow-lg relative">
-            <Image
-              src="/img/boyVids.png"
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
-              alt="Background image"
-            />
-            <div className="grid grid-cols-1 sm:gap-2 gap-6 lg:grid-cols-2 p-2">
-              {chores.map((chore) => (
-                <div
-                  key={chore.id}
-                  className="card-compact bg-base-500 shadow-xl glass text-lg p-6 rounded"
-                >
-                  <div className="card-title flex-col justify-center items-center font-bold border-y">
-                    <i className="fas fa-thumbtack mr-2 mt-2 text-base-300"></i>
-                    <h2 className="text-xl font-semibold text-base-300">
-                      {chore.title}
-                    </h2>
-                  </div>
-                  <div className="card-body text-base-300">
-                    <p className="text-lg">{chore.description}</p>
-                    <p className="text-lg">
-                      {chore.status === 'completed' ? (
-                        <i className="fas fa-check-circle mr-2"></i>
-                      ) : (
-                        <i className="fas fa-times-circle mr-2"></i>
-                      )}
-                      Status: {chore.status}
-                    </p>
-                  </div>
-                </div>
-              ))}
+          chores.map((chore) => (
+            <div
+              key={chore.id}
+              className="bg-base-200 rounded-box border-2 p-4 m-4 relative shadow-lg"
+            >
+              <div className="font-bold text-xl mb-2">{chore.title}</div>
+              <p>{chore.description}</p>
+              <p>Status: {chore.status}</p>
+              <div className="mt-4">
+                <h3 className="underline">Subtasks:</h3>
+                <ul>
+                  {chore.subtasks.map((subtask) => (
+                    <li key={subtask.id}>
+                      {subtask.title} - {subtask.status}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          ))
         )}
       </motion.div>
     </div>
