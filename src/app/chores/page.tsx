@@ -1,4 +1,4 @@
-import ChoreList from '@/components/ui/Chores/ChoreList';
+import ChoreList from '@/components/ui/Chores/Chorelist';
 import { FC } from 'react';
 
 interface Props {}
