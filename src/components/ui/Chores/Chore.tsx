@@ -34,23 +34,25 @@ const Chore: React.FC<ChoreProps> = ({ chore }) => {
       <div className="card-body">
         <p>{chore.description}</p>
         <div>
-          Status: <span className="badge badge-error">{chore.status}</span>
+          Status: <span className="badge badge-error ">{chore.status}</span>
         </div>
         <div>
           Assigned: Assigned:{' '}
-          <span className="badge badge-info">
+          <span className="badge badge-info p-5">
             {chore.created_at ? formatDate(chore.created_at) : ''}
           </span>
         </div>
         <div>
           Last Updated:{' '}
-          <span className="badge badge-info">{chore.updated_at ? formatDate(chore.updated_at) : ''}</span>
+          <span className="badge badge-info p-5">
+            {chore.updated_at ? formatDate(chore.updated_at) : ''}
+          </span>
         </div>
         <div className="mt-4">
           <h3 className="underline">Subtasks:</h3>
           <ul>
             {chore.subtasks.map((subtask) => (
-              <li key={subtask.id} className="list-disk list-inside">
+              <li key={subtask.id}>
                 {subtask.title} - {subtask.status}
               </li>
             ))}
