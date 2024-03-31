@@ -22,6 +22,7 @@ const pageTransitionVariants = {
 const Page: FC<Props> = () => {
   const [chores, setChores] = useState<Chore[]>([]);
   const [isLoading, setLoading] = useState(true);
+  const status =['pending','completed','in progress','canceled']
 
   useEffect(() => {
     const fetchChoresAndSubtasks = async () => {
@@ -79,7 +80,14 @@ const Page: FC<Props> = () => {
             >
               <div className="font-bold text-xl mb-2">{chore.title}</div>
               <p>{chore.description}</p>
-              <p>Status: {chore.status}</p>
+              <p>Status:<span className='badge-primary p-1 rounded border border-1 m-1'> {chore.status}</span></p>
+                <p>Created at:<span  className='badge caution p-1 rounded border border-1 m-1'> {chore.created_at}</span></p>
+              <p>
+                Updated at:{' '}
+                <span className="badge-primary p-1 rounded border m-1">
+                  {chore.updated_at}
+                </span>
+              </p>
               <div className="mt-4">
                 <h3 className="underline">Subtasks:</h3>
                 <ul>
