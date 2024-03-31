@@ -24,20 +24,19 @@ const formatDate = (dateString: string) => {
   return new Intl.DateTimeFormat('en-US', options).format(date);
 };
 
-// Helper function to determine badge class based on chore status
+// Helper function to determine badge class based on chore and subtask status
 const getBadgeClass = (status: string) => {
   switch (status.toLowerCase()) {
     case 'completed':
-      return 'badge-success'; // Green for completed chores
+      return 'badge-success'; // Green for completed chores and subtasks
     case 'pending':
-      return 'badge-error';   // Red for pending chores
+      return 'badge-error'; // Red for pending chores and subtasks
     case 'in progress':
-      return 'badge-info';    // Blue or any other color for in-progress chores
+      return 'badge-info'; // Blue or any other color for in-progress chores and subtasks
     default:
       return 'badge-secondary'; // Gray or any other neutral color for undefined statuses
   }
 };
-
 
 const Chore: React.FC<ChoreProps> = ({ chore }) => {
   return (
@@ -67,10 +66,17 @@ const Chore: React.FC<ChoreProps> = ({ chore }) => {
         </div>
         <div className="mt-4">
           <h3 className="underline">Subtasks:</h3>
-          <ul className="bg-base-100 rounded p-4 border border-1">
+          <ul className="bg-base-100 rounded p-1 border border-1">
             {chore.subtasks.map((subtask) => (
-              <li key={subtask.id}>
-                {subtask.title} - {subtask.status}
+              <li className="m-1" key={subtask.id}>
+                {subtask.title} -{' '}
+                <span
+                  className={`badge ${getBadgeClass(
+                    subtask.status,
+                  )} p-2 text-xs font-bold`}
+                >
+                  {subtask.status}
+                </span>
               </li>
             ))}
           </ul>
