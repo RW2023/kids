@@ -4,6 +4,9 @@ import { supabase } from '@/utils/supabaseClient'; // Adjust the import path as 
 import { Database } from '@/lib/database.types'; // Adjust the import path as necessary
 import Chore from './Chore'; // Make sure this path points to your Chore component
 import Loading from '../Loading';
+import Hero from '@/components/Hero'
+
+
 const ChoreList: React.FC = () => {
   const [chores, setChores] = useState<
     (Database['public']['Tables']['chores']['Row'] & {
@@ -44,13 +47,15 @@ const ChoreList: React.FC = () => {
   }, []);
 
   return (
-     <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4">
-      {isLoading ? (
-        <Loading />
-      ) : (
-        chores.map((chore) => <Chore key={chore.id} chore={chore} />)
-      )}
-    </div>
+     <Hero img='/img/boyVids.png'>
+       <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4">
+        {isLoading ? (
+          <Loading />
+        ) : (
+          chores.map((chore) => <Chore key={chore.id} chore={chore} />)
+        )}
+           </div>
+     </Hero>
   );
 };
 
