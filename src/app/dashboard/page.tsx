@@ -8,6 +8,7 @@ import SubHeading from '@/components/ui/SubHeading';
 import { motion } from 'framer-motion';
 import { supabase } from '@/utils/supabaseClient';
 import Loading from '@/components/ui/Loading';
+import { Database } from '@/lib/database.types'; 
 import Image from 'next/image';
 
 interface Subtask {
