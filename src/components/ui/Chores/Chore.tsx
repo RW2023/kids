@@ -27,11 +27,11 @@ const formatDate = (dateString: string) => {
 
 const Chore: React.FC<ChoreProps> = ({ chore }) => {
   return (
-    <div className="bg-base-200 rounded border-2 p-4 m-4 relative shadow-lg card-compact">
-      <div className="title">
+    <div className="bg-base-100 rounded border-2 p-4 m-4 relative shadow-lg card-compact">
+      <div className="title bg-base-300  rounded">
         <SubHeading title={chore.title} />
       </div>
-      <div className="card-body">
+      <div className="card-body bg-base-300 rounded-md shadow-lg">
         <p>{chore.description}</p>
         <div>
           Status: <span className="badge badge-error ">{chore.status}</span>
@@ -50,7 +50,7 @@ const Chore: React.FC<ChoreProps> = ({ chore }) => {
         </div>
         <div className="mt-4">
           <h3 className="underline">Subtasks:</h3>
-          <ul className="bg-base-300 rounded p-4 border border-1">
+          <ul className="bg-base-100 rounded p-4 border border-1">
             {chore.subtasks.map((subtask) => (
               <li key={subtask.id}>
                 {subtask.title} - {subtask.status}
