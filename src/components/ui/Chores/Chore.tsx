@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { Database } from '@/lib/database.types'; 
 
