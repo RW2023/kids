@@ -47,7 +47,7 @@ const ChoreList: React.FC = () => {
   }, []);
 
   return (
-     <Hero img='/img/boyVids.png'>
+     <Hero img='/img/choreHero.png'>
        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4">
         {isLoading ? (
           <Loading />
