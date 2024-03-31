@@ -50,7 +50,7 @@ const Chore: React.FC<ChoreProps> = ({ chore }) => {
         </div>
         <div className="mt-4">
           <h3 className="underline">Subtasks:</h3>
-          <ul>
+          <ul className="bg-base-300 rounded p-4 border border-1">
             {chore.subtasks.map((subtask) => (
               <li key={subtask.id}>
                 {subtask.title} - {subtask.status}
