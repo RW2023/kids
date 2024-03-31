@@ -17,7 +17,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   const isHomepage = pathname === '/';
 
   return (
-    <html lang="en" data-theme="business">
+    <html lang="en" data-theme="dim">
       <head>
         <title>Chore Tracker</title>
         <meta
