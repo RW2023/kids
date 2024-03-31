@@ -38,13 +38,13 @@ const Chore: React.FC<ChoreProps> = ({ chore }) => {
         </div>
         <div>
           Assigned: Assigned:{' '}
-          <span className="badge badge-info p-5">
+          <span className="badge badge-info p-5 text-xs font-bold">
             {chore.created_at ? formatDate(chore.created_at) : ''}
           </span>
         </div>
         <div>
           Last Updated:{' '}
-          <span className="badge badge-info p-5">
+          <span className="badge badge-info p-5 text-xs font-bold">
             {chore.updated_at ? formatDate(chore.updated_at) : ''}
           </span>
         </div>
