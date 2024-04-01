@@ -48,7 +48,7 @@ const ChoresPage: React.FC = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <ChoreList chores={chores} /> // Add the 'chores' prop to the ChoreList component
+        <ChoreList chores={chores} />
       )}
     </div>
   );
