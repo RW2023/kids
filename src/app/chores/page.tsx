@@ -4,6 +4,7 @@ import { supabase } from '@/utils/supabaseClient';
 import { Database } from '@/lib/database.types';
 import ChoreList from '@/components/ui/Chores/Chorelist';
 import Loading from '@/components/ui/Loading';
+import Heading from '@/components/ui/Heading';
 
 const ChoresPage: React.FC = () => {
   const [chores, setChores] = useState<
@@ -45,11 +46,8 @@ const ChoresPage: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <ChoreList chores={chores} />
-      )}
+      <Heading title="Chore List & Status" />
+      {isLoading ? <Loading /> : <ChoreList chores={chores} />}
     </div>
   );
 };
