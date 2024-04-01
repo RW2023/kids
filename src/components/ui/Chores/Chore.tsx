@@ -28,13 +28,13 @@ const formatDate = (dateString: string) => {
 const getBadgeClass = (status: string) => {
   switch (status.toLowerCase()) {
     case 'completed':
-      return 'badge-success'; // Green for completed chores and subtasks
+      return 'bg-green-500 text-white'; // Tailwind classes for completed chores and subtasks
     case 'pending':
-      return 'badge-error'; // Red for pending chores and subtasks
+      return 'bg-red-500 text-white'; // Tailwind classes for pending chores and subtasks
     case 'in progress':
-      return 'badge-info'; // Blue or any other color for in-progress chores and subtasks
+      return 'bg-blue-500 text-base-content'; // Tailwind classes for in-progress chores and subtasks
     default:
-      return 'badge-secondary'; // Gray or any other neutral color for undefined statuses
+      return 'bg-gray-500 text-black'; // Tailwind classes for undefined statuses
   }
 };
 
@@ -48,7 +48,11 @@ const Chore: React.FC<ChoreProps> = ({ chore }) => {
         <p>{chore.description}</p>
         <div>
           Status:{' '}
-          <span className={`badge ${getBadgeClass(chore.status)}`}>
+          <span
+            className={`inline-block rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 ${getBadgeClass(
+              chore.status,
+            )}`}
+          >
             {chore.status}
           </span>
         </div>
