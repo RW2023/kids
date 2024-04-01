@@ -124,6 +124,13 @@ const Navbar = () => {
         } w-full lg:flex lg:items-center lg:w-auto lg:justify-end`}
       >
         <div className="text-sm lg:flex-grow">
+          {/* Added Chores Link */}
+          <Link
+            href="/chores"
+            className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl hover:underline mr-4 cursor-pointer"
+          >
+            <i className="fas fa-list-ul mr-2"></i>Chores
+          </Link>
           <Link href="/dashboard">
             <span
               onClick={closeNavbar}
