@@ -59,8 +59,10 @@ const ChoresPage: React.FC = () => {
         <ChoreList chores={chores} /> // Passing chores as props to ChoreList
       )}
       <div>
-        <Forms />
-        </div>
+        {/* <Forms 
+        chore_id={chores.}
+        /> */}
+      </div>
     </div>
   );
 };
