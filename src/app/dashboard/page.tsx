@@ -48,15 +48,19 @@ const ChoresPage: React.FC = () => {
 
   return (
     <div>
-      <Forms /> 
       <div>
-        <Heading title="Chores Dashboard" /> {/* Adjusted title */}
+        <Heading title="Chores Dashboard" />
       </div>
       {isLoading ? (
-        <Loading />
+        <div className='min-h-screen'>
+          <Loading />
+        </div>
       ) : (
         <ChoreList chores={chores} /> // Passing chores as props to ChoreList
       )}
+      <div>
+        <Forms />
+        </div>
     </div>
   );
 };
